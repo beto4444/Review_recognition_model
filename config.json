@@ -1,0 +1,6 @@
+{
+    "train_data_url": "https://static.cdn.epam.com/uploads/583f9e4a37492715074c531dbd5abad2/ds/final_project_train_dataset.zip",
+    "test_data_url": "https://static.cdn.epam.com/uploads/583f9e4a37492715074c531dbd5abad2/ds/final_project_test_dataset.zip",
+    "vectorizer": "TF-IDF",
+    "reduction": "Lemmatization"
+}
