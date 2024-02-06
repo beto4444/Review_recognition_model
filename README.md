@@ -12,7 +12,7 @@ The Final Project in Epam Data Science Course
 
 1. Clone repository using  ```git clone https://github.com/beto4444/bstepniewski_final_project```
 2. <b>If you are using Windows, start Docker using Docker Desktop.</b> This step should be unnecessary on Linux, but if docker don't start, add Docker Daemon to processes: ```sudo systemctl start docker```
-3. In directory with cloned repository run command: ```docker build -t bst_final_project .```. First build could take some time so don't worry.
+3. In directory with cloned repository run command: ```docker build -t bst_final_project .``` First build could take some time so don't worry.
 4. After building use:<br>
 On Linux: ```docker run -v $(pwd)/results:/app/export bst_final_project```<br>
 On Windows PowerShell: ```docker run -v ${PWD}\results:/app/export bst_final_project```<br>
