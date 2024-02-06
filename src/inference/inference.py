@@ -45,6 +45,8 @@ if __name__ == '__main__':
     y_pred = model.predict(processed)
     print('Inference completed..')
 
+    if not os.path.exists('app/results'):
+        os.makedirs('app/results')
     print('Saving predictions..')
     predictions = pd.Series(y_pred, name='sentiment')
     predictions.to_csv('app/results/predictions.csv', index=False)
