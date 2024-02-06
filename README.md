@@ -14,9 +14,9 @@ The Final Project in Epam Data Science Course
 2. <b>If you are using Windows, start Docker using Docker Desktop.</b> This step should be unnecessary on Linux, but if docker don't start, add Docker Daemon to processes: ```sudo systemctl start docker```
 3. In directory with cloned repository run command: ```docker build -t bst_final_project .``` First build could take some time so don't worry.
 4. After building use:<br>
-On Linux: ```docker run -v $(pwd)/results:/app/export bst_final_project```<br>
-On Windows PowerShell: ```docker run -v ${PWD}\results:/app/export bst_final_project```<br>
-On Windows CMD: ```docker run -v %cd%\results:/app/export bst_final_project```
+On Linux: ```docker run -v $(pwd)/results:/app/results bst_final_project```<br>
+On Windows PowerShell: ```docker run -v ${PWD}\results:/app/results bst_final_project```<br>
+On Windows CMD: ```docker run -v %cd%\results:/app/results bst_final_project```
 5. Done, total accuracy should be updated above, predictions are available in results folder in cloned repo(only locally of course.)
 
 # Data Science Part
