@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
     print('Saving predictions..')
     predictions = pd.Series(y_pred, name='sentiment')
-    predictions.to_csv(os.path.join(ROOT_DIR, 'app/results/predictions.csv'), index=False)
+    predictions.to_csv('app/results/predictions.csv'), index=False)
 
     print('Predictions saved to /app/results/predictions.csv')
 
