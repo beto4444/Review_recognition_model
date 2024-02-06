@@ -1,4 +1,3 @@
-import pandas as pd
 import re
 import requests
 import os
@@ -9,9 +8,9 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.stem import PorterStemmer
-
-nltk.download('stopwords')
-
+import warnings
+warnings.filterwarnings('ignore', category=DeprecationWarning)
+import pandas as pd
 
 CONFIG = []
 
@@ -115,6 +114,7 @@ class TextProcessing:
 
 
 if __name__ == '__main__':
+    print('Data loader started..')
     CONFIG = load_config('config.json')
     download_data(CONFIG['train_data_url'], CONFIG['test_data_url'])
 

@@ -1,11 +1,16 @@
 from sklearn.linear_model import LogisticRegression 
 import pickle
-import pandas as pd
+
 import os
 import json
 from vectorizer import saved_vect_transform
 from pathlib import Path
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+import warnings
+
+warnings.filterwarnings('ignore', category=DeprecationWarning)
+
+import pandas as pd
 def load_config(config_path):
     with open(config_path, 'r') as f:
         config = json.load(f)
@@ -42,8 +47,21 @@ if __name__ == '__main__':
 
     print('Saving predictions..')
     predictions = pd.Series(y_pred, name='sentiment')
-    predictions.to_csv(os.path.join(ROOT_DIR, 'models/predictions.csv'), index=False)
+    predictions.to_csv(os.path.join(ROOT_DIR, 'app/results/predictions.csv'), index=False)
 
-    print('Predictions saved..')
+    print('Predictions saved to /app/results/predictions.csv')
 
     print(accuracy_score(y_pred, data['sentiment']))
+    print(confusion_matrix(y_pred, data['sentiment']))
+    print(classification_report(y_pred, data['sentiment']))
+          
+
+    report = classification_report(y_pred, data['sentiment'])
+
+    results_path = "/app/results/summary.txt"
+    with open(results_path, "w") as file:
+        file.write("Summary of classification:\n")
+        file.write("--------------------------------\n")
+        file.write(report)
+
+    print(f"Report saved in {results_path}")

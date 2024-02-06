@@ -9,6 +9,8 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = Path(ROOT_DIR).parents[1]
 VECTORIZER_PATH = os.path.join(ROOT_DIR, 'models/vectorizer.pkl')
 def save_vectorizer(vectorizer, path):
+    if not os.path.exists(os.path.dirname(path)):
+        os.makedirs(os.path.dirname(path))
     with open(path, 'wb') as f:
         pickle.dump(vectorizer, f)
 

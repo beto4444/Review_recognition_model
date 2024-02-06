@@ -1,4 +1,4 @@
-import pandas as pd
+
 import os
 from pathlib import Path
 import numpy as np
@@ -6,6 +6,10 @@ import json
 from vectorizer import to_tf_idf
 from vectorizer import to_bag_of_words
 import pickle
+import warnings
+
+warnings.filterwarnings('ignore', category=DeprecationWarning)
+import pandas as pd
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
@@ -46,15 +50,7 @@ if __name__ == '__main__':
     if not os.path.exists(os.path.join(ROOT_DIR, 'models')):
         os.makedirs(os.path.join(ROOT_DIR, 'models'))
     logistic_regression_path = os.path.join(ROOT_DIR, 'models/model1.pkl')
-    rn_forset_path = os.path.join(ROOT_DIR, 'models/model2.pkl')
 
-    print('Training model 1 - Random Forest')
-    random_forest = RandomForestClassifier(n_estimators=100, random_state=42)
-    random_forest.fit(X_train, y_train)
-    y_pred = random_forest.predict(X_test)
-
-
-    print('Random Forest Accuracy:', accuracy_score(y_test, y_pred))
     log_reg = LogisticRegression()
     print('Training model - Logistic Regression')
     log_reg.fit(X_train, y_train)
@@ -62,8 +58,6 @@ if __name__ == '__main__':
 
     with open(logistic_regression_path, 'wb') as f:
         pickle.dump(log_reg, f)
-    with open(rn_forset_path, 'wb') as f:
-        pickle.dump(random_forest, f)
 
         
 
