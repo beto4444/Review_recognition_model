@@ -1,5 +1,5 @@
-# bstepniewski_final_project
-The Final Project in Epam Data Science Course
+# Review recognition model
+The model which distinguish positive and negative reviews.
 
 # ACCURACY
 <h3>Inference accuracy: <b>89.09%</b></h3>
